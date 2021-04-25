@@ -1,23 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Home from './Components/Home/Home';
+import Notfound from './Components/Notfound/Notfound';
+import Navbar from './Components/Navbar/Navbar';
+import Login from './Components/Login/Login';
+import RegisterEvent from './Components/RegisterEvent/RegisterEvent';
+import MyEvents from './Components/MyEvents/MyEvents';
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import AddEvents from "./Components/AddEvents/AddEvents";
+import AllRegistration from "./Components/AllRegistration/AllRegistration";
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Switch>
+          <Route path="/home">
+          <Home></Home>
+          </Route>
+          <Route exact path="/">
+          <Home></Home>
+          </Route>
+          <Route path="/login">
+          <Navbar/>
+          <Login></Login>
+          </Route>
+          <PrivateRoute path="/registerEvent/:id">
+          <Navbar/>
+          <RegisterEvent></RegisterEvent>
+          </PrivateRoute>
+          <PrivateRoute path="/myEvents">
+          <Navbar/>
+          <MyEvents></MyEvents>
+          </PrivateRoute>
+          <PrivateRoute path="/allRegistration">
+          <Navbar/>
+          <AllRegistration></AllRegistration>
+          </PrivateRoute>
+          <PrivateRoute path="/addEvents">
+          <Navbar/>
+          <AddEvents></AddEvents>
+          </PrivateRoute>
+          <Route path="*">
+          <Navbar/>
+          <Notfound></Notfound>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
