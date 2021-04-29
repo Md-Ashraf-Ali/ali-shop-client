@@ -5,7 +5,7 @@ import Event from '../Event/Event';
 const Totalevents = () => {
     
     // const handleAddEvents = () => {
-    //     fetch('http://localhost:5000/addevents',{
+    //     fetch('https://thawing-taiga-56744.herokuapp.com/addevents',{
     //         method:'POST',
     //         headers:{'Content-Type':'application/json'},
     //         body: JSON.stringify(fakedata)
@@ -19,7 +19,7 @@ const Totalevents = () => {
     const [evenData, setEvenData] = useState([]);
     
     useEffect(() => {
-        fetch('http://localhost:5000/events')
+        fetch('https://thawing-taiga-56744.herokuapp.com/events')
         .then(res => res.json())
         .then(data => setEvenData(data))
     },[])

@@ -7,7 +7,7 @@ const Event = (props) => {
     const {_id, name, img, description} = event;
 
     return (
-        <div className = "col-md-3 mb-3">
+        <div className = "col-md-3 mb-3 bg-light">
             <Link to ={`/registerEvent/${_id}`}>
                 <div className="m-3 shadow rounded p-3 h-100">
                     <img className ="img-fluid" src={img} alt=""/>
